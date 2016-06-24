@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Metmsline scripts : R scripts for automation of Metabolomic data analysis">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Metmsline scripts</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/WMBEdmands/MetMSLine_Scripts">View on GitHub</a>
+
+          <h1 id="project_title">Metmsline scripts</h1>
+          <h2 id="project_tagline">R scripts for automation of Metabolomic data analysis</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/WMBEdmands/MetMSLine_Scripts/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/WMBEdmands/MetMSLine_Scripts/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="getting-started-metmsline-instructions" class="anchor" href="#getting-started-metmsline-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Getting Started: MetMSLine Instructions</h1>
+
+<h3>
+<a id="purpose" class="anchor" href="#purpose" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Purpose</h3>
+
+<p>MetMSLine and associated software functions were created in the R language to attempt to achieve improved standard operating procedures and good laboratory practice for efficient and objective untargeted metabolomics analysis of large-scale (e.g. &gt;300  samples) high-resolution LC-MS datasets.</p>
+
+<p>You will need to install the latest version of R (available here: <a href="http://www.r-project.org/">R.download.page</a>) and also following R installation RStudio is recommended for its user-friendly interface (available here: <a href="http://www.rstudio.com/ide/download/desktop">Rstudio</a>)</p>
+
+<h3>
+<a id="required-packages" class="anchor" href="#required-packages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Required packages</h3>
+
+<p>-Initially install all R package dependencies by typing or pasting these lines of code into the command line of the R or RStudio console, you will only need to do this once per computer operating system:</p>
+
+<div class="highlight highlight-source-r"><pre>install.packages(c(<span class="pl-s"><span class="pl-pds">"</span>fgui<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>tcltk2<span class="pl-pds">"</span></span>,<span class="pl-s"><span class="pl-pds">"</span>zoo<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>gplots<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>ggplot2<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>sfsmisc<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>RColorBrewer<span class="pl-pds">"</span></span>, <span class="pl-s"><span class="pl-pds">"</span>readMzXmlData<span class="pl-pds">"</span></span>))
+source(<span class="pl-s"><span class="pl-pds">"</span>http://bioconductor.org/biocLite.R<span class="pl-pds">"</span></span>)
+biocLite(<span class="pl-s"><span class="pl-pds">"</span>pcaMethods<span class="pl-pds">"</span></span>)</pre></div>
+
+<h3>
+<a id="what-does-it-do" class="anchor" href="#what-does-it-do" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>What does it do?</h3>
+
+<p>MetMSLine is compatible with any peak picking software output (e.g. XCMS, mzMine and proprietary softwares) and is available as both a user friendly graphical user interface for non R specialists and also as command line functions for seamless integration. It is possible to use MetMSLine on any operating system.</p>
+
+<p>Simply download the .zip file in the top right corner of this page, extract and save the files within a local directory on your computer (e.g. D:/MetMSLine).</p>
+
+<p>In order to commence the MetMSLine processing sequence with a GUI simply type the following example commands into your R or RStudio (recommended) console 
+e.g.</p>
+
+<div class="highlight highlight-source-r"><pre>source(<span class="pl-s"><span class="pl-pds">'</span>D:/MetMSLine/PreProc.QC.RLSC.GUI.R<span class="pl-pds">'</span></span>)
+<span class="pl-c">###This will start the MetMSLine GUI for pre-processing.###</span></pre></div>
+
+<p>Following pre-processing type/paste the following commands in this sequence to continue the data processing sequence.</p>
+
+<div class="highlight highlight-source-r"><pre>source(<span class="pl-s"><span class="pl-pds">'</span>D:/MetMSLine/Auto.PCA.GUI.R<span class="pl-pds">'</span></span>)
+source(<span class="pl-s"><span class="pl-pds">'</span>D:/MetMSLine/Auto.MV.Regress.GUI.R<span class="pl-pds">'</span></span>)
+source(<span class="pl-s"><span class="pl-pds">'</span>D:/MetMSLine/Auto.MS.MS.match.GUI.R<span class="pl-pds">'</span></span>)
+source(<span class="pl-s"><span class="pl-pds">'</span>D:/MetMSLine/DBAnnotate.GUI.R<span class="pl-pds">'</span></span>)</pre></div>
+
+<p>The MetMSLine installation also includes synthetic high resolution LC-MS data (5000 MS features, 80 samples, 20 Quality Controls) and synthetic continuous Y-variable data (10 Y-variables) with default settings.</p>
+
+<h3>
+<a id="detailed-instructions" class="anchor" href="#detailed-instructions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Detailed Instructions</h3>
+
+<p>Further more detailed instructions of usage of each function and output can be found on our GitHub wiki pages <a href="https://github.com/WMBEdmands/MetMSLine/wiki">https://github.com/WMBEdmands/MetMSLine/wiki</a></p>
+
+<h3>
+<a id="author" class="anchor" href="#author" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Author</h3>
+
+<p>William MB Edmands (<a href="https://github.com/WMBEdmands" class="user-mention">@WMBEdmands</a>)</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Metmsline scripts maintained by <a href="https://github.com/WMBEdmands">WMBEdmands</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
